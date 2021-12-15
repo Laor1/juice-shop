@@ -15,12 +15,13 @@ pipeline {
 		steps {
 			sh 'gitleaks --access-token=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 --repo-url=https://github.com/Laor1/juice-shop --report=/home/testy.json'
 			sh 'cat /home/testy.json'
+			sh 'mv /home/testy.json /home/ubuntu/results/' 
       }
 	}	
 	  stage('OWASP-Dependency-Check') {
 		steps {
 			dependencyCheck additionalArguments: 'scan="https://github.com/Laor1/juice-shop.git" --format HTML', odcInstallation: '6.5.0'
-			sh 'cat /var/lib/jenkins/workspace/Full@2/./dependency-check-report.html'
+			sh 'mv /var/lib/jenkins/workspace/Full@2/./dependency-check-report.html /home/ubuntu/results/'
 		}
 	  }  
 }
