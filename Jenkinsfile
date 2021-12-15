@@ -13,7 +13,7 @@ pipeline {
     }
 	stage('Check-Gitleaks') {
 		steps {
-			sh 'gitleaks --repo=https://github.com/Laor1/juice-shop --report=/home/testy.json'
+			sh 'gitleaks --repo=https://github.com/Laor1/juice-shop --access-token=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 --report=/home/testy.json'
 			sh 'cat /home/testy.json'
       }
 	}	
