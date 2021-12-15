@@ -16,6 +16,11 @@ pipeline {
 			sh 'gitleaks --repo=https://github.com/Laor1/juice-shop --report=/home/testy.json'
 			sh 'cat /home/testy.json'
       }
-    }
+	}	
+	  stage('OWASP-Dependency-Check') {
+		steps {
+			dependencyCheck additionalArguments: 'scan="https://github.com/Laor1/juice-shop.git" --format HTML', odcInstallation: '6.5.0'
+		}
+	  }  
 }
 }	
