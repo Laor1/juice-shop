@@ -20,6 +20,7 @@ pipeline {
 	  stage('OWASP-Dependency-Check') {
 		steps {
 			dependencyCheck additionalArguments: 'scan="https://github.com/Laor1/juice-shop.git" --format HTML', odcInstallation: '6.5.0'
+			sh 'cat /var/lib/jenkins/workspace/Full@2/./dependency-check-report.html'
 		}
 	  }  
 }
