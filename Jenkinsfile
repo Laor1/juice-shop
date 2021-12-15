@@ -15,7 +15,7 @@ pipeline {
 		steps {
 			sh 'gitleaks --access-token=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 --repo-url=https://github.com/Laor1/juice-shop --report=/home/testy.json'
 			sh 'cat /home/testy.json'
-			sh 'mv /home/testy.json /home/ubuntu/results/' 
+			sh 'cp /home/testy.json /home/ubuntu/results/testy.json' 
       }
 	}	
 	  stage('OWASP-Dependency-Check') {
