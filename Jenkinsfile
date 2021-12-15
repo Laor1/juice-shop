@@ -13,7 +13,7 @@ pipeline {
     }
 	stage('Check-Gitleaks') {
 		steps {
-		    sh 'rm -rf /home/testy.json'
+			sh 'rm -rf /home/testy.json'
 			sh 'gitleaks --repo=https://github.com/Laor1/juice-shop --report=/home/testy.json'
 			sh 'cat /home/testy.json'
       }
